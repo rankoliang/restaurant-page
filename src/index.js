@@ -1,1 +1,3 @@
-console.log("Hello world")
+import "normalize.css";
+
+console.log("Hello world");
