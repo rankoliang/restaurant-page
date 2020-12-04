@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Mulish&family=Roboto+Slab:wght@700&family=Roboto:wght@700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+p {
+  font-family: "Mulish", sans-serif;
+}
+
+.logo {
+  font-family: "Lobster", cursive;
+  font-size: 48px;
+  color: #f0f0f0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.logo__background {
+  background-color: #383838;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav {
+  font-family: "Roboto", sans-serif;
+  list-style-type: none;
+  background-color: #0f86b9;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.nav__item {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  color: #eaeaea;
+  flex: 1;
+}
+
+.nav__item a:hover {
+  cursor: pointer;
+}
+
+.nav__item-active,
+.nav__item:hover {
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.text-box {
+  margin: 1rem auto;
+  padding: 1.5rem 2rem;
+  max-width: 768px;
+  text-align: center;
+  background-color: white;
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.25));
+}
+
+figure {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  width: 100%;
+  height: 0;
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.25));
+  background-size: cover;
+}
+
+figcaption {
+  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+  font-size: 24px;
+  background-color: #383838;
+  padding: 5px 2rem;
+  margin: 10px;
+  width: auto;
+  text-align: center;
+}
+
+.figcaption__blue {
+  color: #43ebcd;
+}
+
+.figcaption__purple {
+  color: #FB37FF;
+}
+
+.img__taco {
+  padding-top: 90%;
+  background-image: url(images/tacos-chad-montano-unsplash.jpg);
+  background-position: 0% 60%;
+}
+
+.img__soda {
+  padding-top: 60%;
+  background-image: url(images/jarritos-tacos-unsplash.jpg);
+  background-position: 0% 80%;
+}
+
+@media screen and (max-width: 768px) {
+  .text-box {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
