@@ -1,6 +1,7 @@
 class Navbar {
-  constructor() {
+  constructor(parentElement) {
     this.items = [];
+    this.parentElement = parentElement;
   }
 
   get component() {
@@ -8,14 +9,27 @@ class Navbar {
     const nav = document.createElement("ul");
     nav.classList.add("nav");
     for (const item of this.items) {
-      nav.appendChild(item.navComponent);
+      const navItemComponent = item.navComponent;
+      navItemComponent.addEventListener("click", this.activateItem.bind(this, item));
+      if (this.activeItem === item) {
+        navItemComponent.classList.add("nav__item-active");
+      }
+      nav.appendChild(navItemComponent);
     }
     component.appendChild(nav);
     return component;
   }
 
-  addItem(item) {
+  activateItem(item) {
+    this.activeItem = item;
+    this.parentElement.render();
+  }
+
+  addItem(item, isActive = false) {
     this.items.push(item);
+    if (isActive) {
+      this.activeItem = item;
+    }
   }
 }
 
