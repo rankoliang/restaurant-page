@@ -1,6 +1,6 @@
 import "normalize.css";
-import Content from "./javascript/page.js";
+import Page from "./javascript/page.js";
 
 (() => {
-  new Content().render();
+  new Page().render();
 })();
