@@ -1,10 +1,17 @@
 import { Navbar } from "./navbar.js";
 import Header from "./header.js";
 import home from "./pages/home.js";
+import menu from "./pages/menu.js";
 
 class Page {
   constructor() {
     this.content = document.querySelector("#content");
+    this._navbar = (() => {
+      const navbar = new Navbar(this);
+      navbar.addItem(home);
+      navbar.addItem(menu, true);
+      return navbar;
+    })();
   }
 
   render() {
@@ -12,7 +19,8 @@ class Page {
       this.content.removeChild(this.content.lastChild);
     }
     this.content.appendChild(this.header.component);
-    if (this.activeItem) {
+    if (typeof this.activeItem !== "undefined") {
+      console.log(this.activeItem);
       this.content.appendChild(this.activeItem.mainComponent);
     }
   }
@@ -26,10 +34,8 @@ class Page {
   }
 
   get navbar() {
-    const navbar = new Navbar(this);
-    navbar.addItem(home, true);
-    return navbar;
+    return this._navbar;
   }
 }
 
-export default Page;
+export default new Page();
