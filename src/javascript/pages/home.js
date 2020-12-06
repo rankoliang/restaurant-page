@@ -2,7 +2,7 @@ import { NavItem } from "../navbar.js";
 import { Paragraph } from "../text_box.js";
 import Figure from "../figure.js";
 
-class Home extends NavItem {
+class HomePage extends NavItem {
   constructor() {
     super("Home");
     this.children = [this._description, this._delicious_tacos, this._spicy_sauces];
@@ -35,4 +35,4 @@ class Home extends NavItem {
   }
 }
 
-export default new Home();
+export default new HomePage();

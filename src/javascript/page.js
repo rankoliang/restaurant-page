@@ -2,6 +2,7 @@ import { Navbar } from "./navbar.js";
 import Header from "./header.js";
 import home from "./pages/home.js";
 import menu from "./pages/menu.js";
+import contact from "./pages/contact.js"
 
 class Page {
   constructor() {
@@ -10,6 +11,7 @@ class Page {
       const navbar = new Navbar(this);
       navbar.addItem(home, true);
       navbar.addItem(menu);
+      navbar.addItem(contact, true);
       return navbar;
     })();
   }
