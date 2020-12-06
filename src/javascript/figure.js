@@ -1,3 +1,5 @@
+import StyledText from "./styled_text.js";
+
 class Figure {
   constructor({ src, alt, caption, captionColor = "blue", aspectRatio }) {
     this.src = src;
@@ -26,10 +28,7 @@ class Figure {
   }
 
   get _caption() {
-    const figcaption = document.createElement("figcaption");
-    figcaption.classList.add(`figcaption__${this.captionColor}`);
-    figcaption.textContent = this.caption;
-    return figcaption;
+    return new StyledText({ color: this.captionColor, text: this.caption, elementType: "figcaption" }).component;
   }
 }
 

@@ -11,7 +11,7 @@ class Home extends NavItem {
   get _description() {
     return new Paragraph(
       "Come to the taco project to eat the most delicious tacos. Pair them with our open sauces developed by our award winning chefs that will keep you coming back."
-    );
+    ).component;
   }
 
   get _delicious_tacos() {
@@ -21,7 +21,7 @@ class Home extends NavItem {
       caption: "Delicious Tacos",
       aspectRatio: 0.9,
       captionColor: "blue",
-    });
+    }).component;
   }
 
   get _spicy_sauces() {
@@ -31,16 +31,7 @@ class Home extends NavItem {
       caption: "Spicy sauces",
       aspectRatio: 0.6,
       captionColor: "purple",
-    });
-  }
-
-  get mainComponent() {
-    const main = document.createElement("main");
-
-    for (const child of this.children) {
-      main.appendChild(child.component);
-    }
-    return main;
+    }).component;
   }
 }
 

@@ -46,6 +46,15 @@ class NavItem {
     component.appendChild(navLink);
     return component;
   }
+
+  get mainComponent() {
+    const main = document.createElement("main");
+
+    for (const child of this.children) {
+      main.appendChild(child);
+    }
+    return main;
+  }
 }
 
 export { Navbar, NavItem };

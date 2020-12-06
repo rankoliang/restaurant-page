@@ -8,8 +8,8 @@ class Page {
     this.content = document.querySelector("#content");
     this._navbar = (() => {
       const navbar = new Navbar(this);
-      navbar.addItem(home);
-      navbar.addItem(menu, true);
+      navbar.addItem(home, true);
+      navbar.addItem(menu);
       return navbar;
     })();
   }
@@ -20,7 +20,6 @@ class Page {
     }
     this.content.appendChild(this.header.component);
     if (typeof this.activeItem !== "undefined") {
-      console.log(this.activeItem);
       this.content.appendChild(this.activeItem.mainComponent);
     }
   }

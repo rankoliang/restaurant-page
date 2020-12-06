@@ -1,47 +1,75 @@
 import { NavItem } from "../navbar.js";
-import { Paragraph } from "../text_box.js";
-import Figure from "../figure.js";
+import { TextBox } from "../text_box.js";
+import StyledText from "../styled_text.js";
 
-class Menu extends NavItem {
+class MenuPage extends NavItem {
   constructor() {
     super("Menu");
-    this.children = [this._description, this._delicious_tacos, this._spicy_sauces];
+    this.menu = {
+      Tacos: {
+        "Carne Asada": 4.25,
+        "Pollo Asado": 3.95,
+        Adobada: 3.95,
+        Nopal: 3.75,
+      },
+      Quesadillas: {
+        "Carne Asada": 5.25,
+        "Pollo Asado": 4.95,
+        Adobada: 4.95,
+        Nopal: 4.75,
+        Especial: 7,
+      },
+      "On a Plate": {
+        "Nopal Plate": 8,
+      },
+      Sides: {
+        "Chips y Salsa": 3.95,
+        "Chips y Guacamole": 4.95,
+      },
+      Drinks: {
+        "Aguas Frescas": 3.95,
+        "Mexican Sodas": 3.95,
+        "Bottled Sodas": 3.25,
+        Water: 2.75,
+      },
+    };
+    this.children = [...this.categories];
   }
 
-  get _description() {
-    return new Paragraph(
-      "Come to the taco project to eat the most delicious tacos. Pair them with our open sauces developed by our award winning chefs that will keep you coming back."
-    );
-  }
-
-  get _delicious_tacos() {
-    return new Figure({
-      src: "images/tacos-chad-montano-unsplash.jpg",
-      alt: "Tacos being drizzled with lime",
-      caption: "Delicious Tacos",
-      aspectRatio: 0.9,
-      captionColor: "blue",
+  get categories() {
+    return Object.entries(this.menu).map(([category, entries]) => {
+      return this.categoryComponent(category, entries);
     });
   }
 
-  get _spicy_sauces() {
-    return new Figure({
-      src: "images/jarritos-tacos-unsplash.jpg",
-      alt: "Tacos with sauces and soda",
-      caption: "Spicy sauces",
-      aspectRatio: 0.6,
-      captionColor: "purple",
-    });
-  }
+  categoryComponent(category, entries) {
+    const component = document.createElement("div");
+    const header = new StyledText({ text: category }).component;
 
-  get mainComponent() {
-    const main = document.createElement("main");
+    const prices = new TextBox(
+      ...Object.entries(entries).map(([item, price]) => {
+        const entryContainer = document.createElement("div");
+        entryContainer.classList.add("menu-entry");
 
-    for (const child of this.children) {
-      main.appendChild(child.component);
-    }
-    return main;
+        const itemComponent = document.createElement("span");
+        itemComponent.classList.add("menu-entry__item");
+        itemComponent.textContent = item;
+
+        const priceComponent = document.createElement("span");
+        priceComponent.classList.add("menu-entry__price");
+        priceComponent.textContent = `$${price.toFixed(2)}`;
+
+        entryContainer.appendChild(itemComponent);
+        entryContainer.appendChild(priceComponent);
+
+        return entryContainer;
+      })
+    ).component;
+
+    component.appendChild(header);
+    component.appendChild(prices);
+    return component;
   }
 }
 
-export default new Menu();
+export default new MenuPage();
