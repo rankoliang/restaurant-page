@@ -10,7 +10,7 @@ class HomePage extends NavItem {
 
   get _description() {
     return new Paragraph(
-      "Come to the taco project to eat the most delicious tacos. Pair them with our open sauces developed by our award winning chefs that will keep you coming back."
+      "Dolor dolore delectus illo dolore ab Voluptates autem hic voluptates blanditiis amet. Fugiat mollitia ullam laborum quasi similique quam Placeat!"
     ).component;
   }
 
