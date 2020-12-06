@@ -87,23 +87,59 @@ img {
   background-position-y: bottom;
 }
 
-figcaption {
+.styled-text {
   font-family: "Roboto Slab", serif;
   font-weight: 700;
   font-size: 24px;
   background-color: #383838;
-  padding: 5px 2rem;
-  margin: 10px;
+  padding: 5px 10px;
+  margin: 10px auto;
   width: auto;
   text-align: center;
 }
 
-.figcaption__blue {
+.styled-text__white {
+  color: #f0f0f0;
+}
+
+.styled-text__blue {
   color: #43ebcd;
 }
 
-.figcaption__purple {
+.styled-text__purple {
   color: #fb37ff;
+}
+
+.menu-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: "Lato", sans-serif;
+}
+
+.menu-entry__item {
+  font-weight: bold;
+  font-size: 30px;
+  text-transform: uppercase;
+  text-align: left;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* overflow: hidden; */
+  white-space: nowrap;
+}
+
+.menu-entry__price {
+  font-size: 24px;
+}
+
+@media screen and (max-width: 700px) {
+  .menu-entry__item {
+    font-size: 24px;
+  }
+
+  .menu-entry__price {
+    font-size: 18px;
+  }
 }
 
 @media screen and (max-width: 868px) {
