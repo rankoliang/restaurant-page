@@ -11,7 +11,7 @@ class Page {
       const navbar = new Navbar(this);
       navbar.addItem(home, true);
       navbar.addItem(menu);
-      navbar.addItem(contact, true);
+      navbar.addItem(contact);
       return navbar;
     })();
   }
